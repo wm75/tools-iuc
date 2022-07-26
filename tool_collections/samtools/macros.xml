@@ -1,4 +1,5 @@
 <macros>
+    <!-- <contribution!!> -->
     <xml name="requirements">
         <requirements>
             <requirement type="package" version="@TOOL_VERSION@">samtools</requirement>
