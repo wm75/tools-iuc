@@ -7,9 +7,6 @@ on:
       - 'docs/**'
       - '*'
   push:
-    branches:
-      - main
-      - master
     paths-ignore:
       - '.github/**'
       - 'deprecated/**'
