@@ -14,6 +14,10 @@ These repositories are maintained and developed by the [Intergalactic Utilities 
 Pull Requests with dependencies specified as conda-package will be automatically tested and verified using [planemo](https://github.com/galaxyproject/planemo). If the tests pass and the pull request is merged, the tool will be automatically uploaded to the [Test](http://testtoolshed.g2.bx.psu.edu/)- and [Main Tool Shed](http://toolshed.g2.bx.psu.edu/).
 
 Other repositories with Galaxy tools:
+
+Ohoh!
+ la la
+
  * [Björn Grüning repo](https://github.com/bgruening/galaxytools)
  * [Galaxy devteam repo](https://github.com/galaxyproject/tools-devteam)
  * Peter Cock's repos:
