@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<tool name="cBioportal" id="cbioportal_data_source" tool_type="data_source" version="1.0.0" profile="23.0">
+    <description>data retrieval</description>
+    <requirements>
+        <requirement type="package" version="23.1.4">galaxy-util</requirement>
+    </requirements>
+    <command><![CDATA[
+        python '$__tool_directory__/data_source.py' '$output' $__app__.config.output_size_limit
+    ]]></command>
+    <inputs action="http://localhost:8090/getdata" check_values="false">
+        <display>go to cherrypy server $GALAXY_URL</display>
+        <!--default anyway :) param name="GALAXY_URL" type="baseurl" value="/async/cbioportal_data_source" /-->
+        <param name="tool_id" type="hidden" value="cbioportal_data_source" />
+        <param name="sendToGalaxy" type="hidden" value="1" />
+    </inputs>
+    <request_param_translation>
+        <!-- All of this is getting ignored in async mode!!
+        Only GALAXY_URL and the final download URL are available in the job_params -->
+        <request_param galaxy_name="URL" remote_name="URL" missing="" />
+        <request_param galaxy_name="REMOTE" remote_name="REMOTE" missing="post" />
+        <request_param galaxy_name="data_type" remote_name="outputType" missing="auto" >
+            <value_translation>
+                <value galaxy_value="TABULAR!!!" remote_value="table" />
+            </value_translation>
+        </request_param>
+    </request_param_translation>
+    <!--uihints minwidth="800"/-->
+    <outputs provided_metadata_style="legacy">
+        <data name="output" format="tabular" label="${tool.name}"/>
+    </outputs>
+    <!--options sanitize="False" refresh="True"/-->
+</tool>
